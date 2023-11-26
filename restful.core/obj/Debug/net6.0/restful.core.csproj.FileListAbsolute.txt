@@ -1,0 +1,12 @@
+Y:\Groups\Group_5\קאפח  מיטל\.net\restful\restful.core\bin\Debug\net6.0\restful.core.deps.json
+Y:\Groups\Group_5\קאפח  מיטל\.net\restful\restful.core\bin\Debug\net6.0\restful.core.dll
+Y:\Groups\Group_5\קאפח  מיטל\.net\restful\restful.core\bin\Debug\net6.0\restful.core.pdb
+Y:\Groups\Group_5\קאפח  מיטל\.net\restful\restful.core\obj\Debug\net6.0\restful.core.csproj.AssemblyReference.cache
+Y:\Groups\Group_5\קאפח  מיטל\.net\restful\restful.core\obj\Debug\net6.0\restful.core.GeneratedMSBuildEditorConfig.editorconfig
+Y:\Groups\Group_5\קאפח  מיטל\.net\restful\restful.core\obj\Debug\net6.0\restful.core.AssemblyInfoInputs.cache
+Y:\Groups\Group_5\קאפח  מיטל\.net\restful\restful.core\obj\Debug\net6.0\restful.core.AssemblyInfo.cs
+Y:\Groups\Group_5\קאפח  מיטל\.net\restful\restful.core\obj\Debug\net6.0\restful.core.csproj.CoreCompileInputs.cache
+Y:\Groups\Group_5\קאפח  מיטל\.net\restful\restful.core\obj\Debug\net6.0\restful.core.dll
+Y:\Groups\Group_5\קאפח  מיטל\.net\restful\restful.core\obj\Debug\net6.0\refint\restful.core.dll
+Y:\Groups\Group_5\קאפח  מיטל\.net\restful\restful.core\obj\Debug\net6.0\restful.core.pdb
+Y:\Groups\Group_5\קאפח  מיטל\.net\restful\restful.core\obj\Debug\net6.0\ref\restful.core.dll

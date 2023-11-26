@@ -88,6 +88,42 @@
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
         ]
+      },
+      "restful.core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/restful.core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/restful.core.dll": {}
+        }
+      },
+      "restful.data/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "restful.core": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/restful.data.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/restful.data.dll": {}
+        }
+      },
+      "restful.service/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "restful.core": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/restful.service.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/restful.service.dll": {}
+        }
       }
     }
   },
@@ -216,11 +252,28 @@
         "swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512",
         "swashbuckle.aspnetcore.swaggerui.nuspec"
       ]
+    },
+    "restful.core/1.0.0": {
+      "type": "project",
+      "path": "../restful.core/restful.core.csproj",
+      "msbuildProject": "../restful.core/restful.core.csproj"
+    },
+    "restful.data/1.0.0": {
+      "type": "project",
+      "path": "../restful.data/restful.data.csproj",
+      "msbuildProject": "../restful.data/restful.data.csproj"
+    },
+    "restful.service/1.0.0": {
+      "type": "project",
+      "path": "../restful.service/restful.service.csproj",
+      "msbuildProject": "../restful.service/restful.service.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "Swashbuckle.AspNetCore >= 6.2.3"
+      "Swashbuckle.AspNetCore >= 6.2.3",
+      "restful.data >= 1.0.0",
+      "restful.service >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -255,7 +308,14 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "Y:\\Groups\\Group_5\\קאפח  מיטל\\.net\\restful\\restful.data\\restful.data.csproj": {
+              "projectPath": "Y:\\Groups\\Group_5\\קאפח  מיטל\\.net\\restful\\restful.data\\restful.data.csproj"
+            },
+            "Y:\\Groups\\Group_5\\קאפח  מיטל\\.net\\restful\\restful.service\\restful.service.csproj": {
+              "projectPath": "Y:\\Groups\\Group_5\\קאפח  מיטל\\.net\\restful\\restful.service\\restful.service.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

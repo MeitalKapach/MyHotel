@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using RestFull.Entities;
+﻿using CreateApi;
+using Microsoft.AspNetCore.Mvc;
+using restful.core.Services;
+using restful.Entities;
 
 namespace RestFull.Controllers
 {
@@ -7,25 +9,29 @@ namespace RestFull.Controllers
     [ApiController]
     public class RoomController : Controller
     {
+        private readonly IRoomService RoomService;
+     
+        public RoomController(IRoomService RoomService_)
+        {
+            RoomService = RoomService_;
+        }
+        //private DataContext _dataContext;
 
-        private static List<Room> rooms = new List<Room> {
-            new Room(){Id=7,Avialable=false},
-            new Room(){Id=6,Avialable=true},
-            new Room(){Id=5,Avialable=false}, };
-
-
-
+        //public RoomController(DataContext DC)
+        //{
+        //    _dataContext = DC;
+        //}
 
         // GET: api/<ValuesController>
         [HttpGet]
-        public IEnumerable<Room> Get() => rooms;
+        public IEnumerable<Room> Get() => RoomService.GetRooms();
 
 
         // GET api/<ValuesController>/5
         [HttpGet("{id}")]
         public ActionResult<Room> Get(int id)
         {
-            var x = rooms.Find(x => x.Id == id);
+            var x = RoomService.GetRooms().Find(x => x.Id == id);
             if (x == null)
             {
                 return NotFound();
@@ -38,34 +44,34 @@ namespace RestFull.Controllers
         [HttpPost]
         public void Post([FromBody] Room value)
         {
-            rooms.Add(value);
+            RoomService.GetRooms().Add(value);
         }
 
         // PUT api/<ValuesController>/5
         [HttpPut("{id}")]
         public ActionResult<Room> Put(int id, [FromBody] Room value)
         {
-            var eve = rooms.Find(e => e.Id == id);
-            if (eve == null)
+            var x = RoomService.GetRooms().Find(e => e.Id == id);
+            if (x == null)
             {
                 return NotFound();
             }
-            eve.Avialable = value.Avialable;
-            eve.Id = id;
+            x.Avialable = value.Avialable;
+            x.Id = id;
 
-            return eve;
+            return x;
         }
 
         // DELETE api/<ValuesController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            var eve = rooms.Find(e => e.Id == id);
-            if (eve == null)
+            var x = RoomService.GetRooms().Find(e => e.Id == id);
+            if (x == null)
             {
                 NotFound();
             }
-            rooms.Remove(eve);
+            RoomService.GetRooms().Remove(x);
         }
     }
 }

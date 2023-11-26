@@ -1,7 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CreateApi;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using restFul.Entities;
-using RestFull.Entities;
+using restful.Entities;
+using restful.core.Services;
 
 namespace RestFull.Controllers
 {
@@ -9,24 +10,28 @@ namespace RestFull.Controllers
     [ApiController]
     public class GuestController : Controller
     {
-        private static List<Guest> guests = new List<Guest> {
-            new Guest(){Id=7,Status=false,Phone=0222},
-            new Guest(){Id=6,Status=true,Phone=55},
-            new Guest(){Id=5,Status=false,Phone=89}, };
 
+        private readonly IGuestService guestService;
+        public GuestController(IGuestService guestService_)
+        {
+            guestService = guestService_;
+        }
+        //private DataContext _dataContext;
 
-
-
+        //public GuestController(DataContext DC)
+        //{
+        //    _dataContext = DC;
+        //}
         // GET: api/<ValuesController>
         [HttpGet]
-        public IEnumerable<Guest> Get() => guests;
+        public IEnumerable<Guest> Get() => guestService.GetGuests();
 
 
         // GET api/<ValuesController>/5
         [HttpGet("{id}")]
         public ActionResult<Guest> Get(int id)
         {
-            var x = guests.Find(x => x.Id == id);
+            var x = guestService.GetGuests().Find(x => x.Id == id);
             if (x == null)
             {
                 return NotFound();
@@ -39,42 +44,42 @@ namespace RestFull.Controllers
         [HttpPost]
         public void Post([FromBody] Guest value)
         {
-            guests.Add(value);
+            guestService.GetGuests().Add(value);
         }
 
         // PUT api/<ValuesController>/5
         [HttpPut("{id}")]
         public ActionResult<Guest> Put(int id, [FromBody] Guest value)
         {
-            var eve = guests.Find(e => e.Id == id);
-            eve.Status = value.Status;
-            if (eve == null)
+            var x = guestService.GetGuests().Find(e => e.Id == id);
+            x.Status = value.Status;
+            if (x == null)
             {
                 return NotFound();
             }
 
-            return eve;
+            return x;
         }
         [HttpPut("{id}/status")]
         public Guest Put(int id, [FromBody] string status)
         {
             //find the object by id
-            var eve = guests.Find(e => e.Id == id);
+            var x = guestService.GetGuests().Find(e => e.Id == id);
             //udpate properties
             //eve.Title = updateEvent.Title;
-            return eve;
+            return x;
         }
 
         // DELETE api/<ValuesController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            var eve = guests.Find(e => e.Id == id);
-            if (eve == null)
+            var x = guestService.GetGuests().Find(e => e.Id == id);
+            if (x == null)
             {
                 NotFound();
             }
-            else guests.Remove(eve);
+            else guestService.GetGuests().Remove(x);
         }
     }
 }
